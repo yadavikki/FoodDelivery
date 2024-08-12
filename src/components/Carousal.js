@@ -1,5 +1,5 @@
 import React from 'react';
-import pic1 from './pic1.jpg';
+//import pic1 from './pic1.jpg';
 import pic2 from './pic2.jpg';
 import pic3 from './pic3.jpg';
 
@@ -15,13 +15,13 @@ export default function Carousel() {
                         </form>
                     </div>
                     <div className="carousel-item active">
-                        <img src={pic1} className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+                        <img src="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={pic2} className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+                        <img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
                     </div>
                     <div className="carousel-item">
-                        <img src={pic3} className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+                        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
