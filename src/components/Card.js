@@ -1,5 +1,5 @@
 import React from "react";
-import pic1 from './pic1.jpg';
+
 export default function Card() {
   return (
     <div>
