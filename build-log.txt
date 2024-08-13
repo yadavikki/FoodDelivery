@@ -1,0 +1,44 @@
+
+> my-app@0.1.0 build
+> react-scripts build
+
+Creating an optimized production build...
+Compiled with warnings.
+
+Warning
+(11:29627) autoprefixer: Replace color-adjust to print-color-adjust. The color-adjust shorthand is currently deprecated.
+
+[eslint] 
+src\components\Card.js
+  Line 2:8:   'pic1' is defined but never used                                                                                                                                                                 no-unused-vars
+  Line 8:11:  Redundant alt attribute. Screen-readers already announce `img` tags as an image. You don’t need to use the words `image`, `photo,` or `picture` (or any specified custom words) in the alt prop  jsx-a11y/img-redundant-alt
+
+src\components\Carousal.js
+  Line 3:8:  'pic2' is defined but never used  no-unused-vars
+  Line 4:8:  'pic3' is defined but never used  no-unused-vars
+
+src\screens\Signup.js
+  Line 2:10:  'json' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  102.05 kB  build\static\js\main.cf878b02.js
+  31.38 kB   build\static\css\main.615587f6.css
+  1.77 kB    build\static\js\453.ed3810f9.chunk.js
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+  npm install -g serve
+  serve -s build
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
