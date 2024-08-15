@@ -3,6 +3,9 @@ const router=express.Router()
 const User=require('../models/User')
 const{body,validationResult}= require('express-validator');
 
+const jwt=require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+const jwtSecret="Underneath the glowing moonlight"
 router.post("/creatuser", [
     body('email','Incorrect email').isEmail(),
     body('name').isLength(),
@@ -13,12 +16,13 @@ router.post("/creatuser", [
         if(!errors.isEmpty()){
             return res.status(400).json({errors:errors.array()});
         }
-
+    const salt = await bcrypt.genSalt(10);
+    let secPassword = await bcrypt.hash(req.body.password , salt)
 
 try{
    await User.create({
         name:req.body.name,
-        password:req.body.password,
+        password:secPassword,
         email:req.body.email,
         location:req.body.location,
         date:req.body.date
@@ -49,11 +53,20 @@ router.post("/loginuser", [
         if(!userData){
             return res.status(400).json({errors:"Try login with correct credentials"})
         }
-        if(!req.body.password===userData.password){
+
+        const pwdCompare = await bcrypt.compare(req.body.password,userData.password)
+
+        if(!pwdCompare){
             return res.status(400).json({errors:"Try login with correct credentials"})
         }
-
-        return res.json({success:true})
+        
+        const data={
+            user:{
+                id:userData.id
+            }
+        }
+        const authToken=jwt.sign(data,jwtSecret)
+        return res.json({success:true,authToken:authToken })
 
     } catch(error){
     console.log(error)
